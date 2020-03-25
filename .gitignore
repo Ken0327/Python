@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# vscode 
+.vscode
+
+# phantomjs
+phantomjs-2.1.1-windows
+
+# log
+*.log
