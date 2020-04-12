@@ -29,7 +29,7 @@ def compress(sparse):
 print('[Sparse Matrix]')
 for i in range(6):
     for j in range(6):
-        print('[%d]' %Sparse[i][j], end='\t')
+        print('%d' %Sparse[i][j], end='\t')
         if Sparse[i][j] != 0:
             NONEZERO = NONEZERO + 1
     print()
@@ -39,5 +39,5 @@ CompressMatrix = compress(Sparse)
 print('[Compress Sparse Matrix]')
 for i in range(NONEZERO + 1):
     for j in range(3):
-        print('[%d]' %CompressMatrix[i][j], end='\t')
+        print('%d' %CompressMatrix[i][j], end='\t')
     print()

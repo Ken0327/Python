@@ -16,8 +16,8 @@ index = 0
 for i in range(ArraySize + 1):
     for j in range(i, ArraySize):
         if (A[i][j] != 0):
-                B[index] = A[i][j]
-                index += 1
+            B[index] = A[i][j]
+            index += 1
 
 print('[Upper triangular Matrix]')
 for i in range(ArraySize):
