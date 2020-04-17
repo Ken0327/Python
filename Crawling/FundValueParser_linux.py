@@ -20,10 +20,10 @@ currentvaluetable = json.load(open(currentvaluepath))
 currentValue = currentvaluetable['CurrentValue']
 
 
-def fundValueCrawling(currentvalue):
+def fundValueCrawling():
     try:
         Messages = ''
-        divider = '----------------------------------------\n'
+        divider = '------------------------\n'
         today = date.today().strftime("%Y/%m/%d")
         todayis = '今天是 ' + today
         Messages += todayis + '\n'
@@ -48,7 +48,7 @@ def fundValueCrawling(currentvalue):
         Messages += highvalueRand + '\n'
         Messages += lowvalueRand + '\n'
 
-        unitAll = float(currentvalue)
+        unitAll = float(currentValue)
         unitnow = '目前單位數:' + str(unitAll)
         Messages += unitnow + '\n'
 
@@ -123,6 +123,17 @@ def fundValueCrawling(currentvalue):
         Messages += valuetotalTW + '\n'
         Messages += valuetotalUS + '\n'
         Messages += affodableunitUS + '\n'
+
+        # print('----------------------------------------')
+        Messages += divider
+
+        Messages += '*貨幣帳戶:' + '\n'
+        for key, value in currentvaluetable.items():
+            if '_' in key:
+                current = key.split('_')[1]
+                print(current)
+                message = '*' + current + ': ' + value
+                Messages += message + '\n'
         return Messages
     except error as e:
         print(e)
@@ -146,7 +157,7 @@ def pushMessages(message):
 
 if __name__ == "__main__":
     syslog.syslog('Start Fund Value Crawling')
-    Messages = fundValueCrawling(currentValue)
+    Messages = fundValueCrawling()
     print(Messages)
     pushMessages(Messages)
     syslog.syslog('Finished Crawling')
